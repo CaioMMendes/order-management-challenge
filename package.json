@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "**Objetivo:** Avaliar organização de código, domínio de TypeScript e implementação de regras de negócio.\r **Stack:** Node.js, Express, Mongoose, TypeScript.\r **Testes:** Vitest (Diferencial).",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
     "test": "vitest",
     "test:run": "vitest run",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest run --coverage",
     "prepare": "husky"
   },
   "keywords": [],
@@ -40,6 +43,7 @@
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.3",
+    "vite-tsconfig-paths": "^6.0.3",
     "vitest": "^4.0.16"
   }
 }
