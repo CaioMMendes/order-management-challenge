@@ -2,7 +2,7 @@ import express from "express"
 import { routes } from "./routes/routes"
 import cors from "cors"
 import "dotenv/config"
-import { errorHandler } from "./middlewares/error.middleware"
+import { errorMiddleware } from "./middlewares/error.middleware"
 
 export const app = express()
 
@@ -15,8 +15,9 @@ app.use(
 )
 
 app.use(express.json())
+
 app.use(routes)
 
 app.use(express.json())
 
-app.use(errorHandler)
+app.use(errorMiddleware)
