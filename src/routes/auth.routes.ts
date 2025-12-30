@@ -85,23 +85,4 @@ authRoutes.post("/register", controller.register)
  */
 authRoutes.post("/login", controller.login)
 
-/**
- * @swagger
- * /auth/teste:
- *   get:
- *     summary: Rota de teste
- *     tags:
- *       - teste
- *     responses:
- *       200:
- *         description: rota de teste funcionando
- */
-authRoutes.get("/teste", (req, res) => {
-  return res.json({ message: "rota de teste funcionando" })
-})
-
-authRoutes.get("/health", (_req, res) => {
-  res.status(200).json({ status: "ok" })
-})
-
 export { authRoutes }
