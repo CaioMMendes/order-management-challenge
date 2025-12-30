@@ -14,8 +14,17 @@ const options = {
         description: "Servidor local",
       },
     ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
   },
-  apis: ["./src/routes/*.ts"], // onde estão suas rotas
+  apis: ["./src/routes/*.ts"],
 }
 
 export const swaggerSpec = swaggerJsdoc(options)
