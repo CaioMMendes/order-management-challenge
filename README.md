@@ -1,69 +1,87 @@
-# Desafio Técnico Backend
+# 📦 Orders Management API
 
-**Objetivo:** Avaliar organização de código, domínio de TypeScript e implementação de regras de negócio.
-**Stack:** Node.js, Express, Mongoose, TypeScript.
-**Testes:** Vitest (Diferencial).
-
-### Estrutura de Dados
-
-**1. User**
-
-* `email` (unique), `password`.
-
-**2. Order**
-
-* Campos: `lab`, `patient`, `customer` (strings).
-* `state`: `CREATED` -> `ANALYSIS` -> `COMPLETED`.
-* `status`: `ACTIVE` | `DELETED`.
-* `services` (Array obrigatório): `{ name: string, value: number, status: 'PENDING' | 'DONE' }`.
+API REST para gerenciamento de pedidos, desenvolvida com **Node.js**, **Express**, **TypeScript** e **MongoDB (Mongoose)**.  
+O projeto conta com **Swagger (OpenAPI)** para documentação e teste das rotas.
 
 ---
 
-### ETAPA 1: Essencial (Obrigatório)
+## 🚀 Tecnologias utilizadas
 
-1. **Autenticação:**
-* Registro e Login retornando JWT.
-* Middleware de proteção para rotas de pedidos.
-
-
-2. **Gestão de Pedidos:**
-* **POST /orders:** Criação do pedido. Padrão: `state: CREATED`, `status: ACTIVE`.
-* **GET /orders:** Listagem com paginação e filtro por `state`.
-
-
+- Node.js
+- Express
+- TypeScript
+- MongoDB (Mongoose)
+- Swagger (OpenAPI)
+- Vitest
+- Husky
 
 ---
 
-### ETAPA 2: Diferencial (Regras e Qualidade)
+## 🌐 Deploy
 
-1. **Validação de Negócio:**
-* Não permitir criação de pedidos sem serviços ou com valor total zerado.
+- **API em produção**  
+  <https://order-management-challenge-production.up.railway.app>
 
-
-2. **Fluxo de Status:**
-* Endpoint `PATCH /orders/:id/advance`.
-* A transição deve respeitar a ordem estrita: `CREATED` -> `ANALYSIS` -> `COMPLETED`.
-* Bloquear tentativas de pular etapas ou retroceder.
-
-
-3. **Testes (Vitest):**
-* Teste unitário garantindo que a lógica de transição de `state` funciona e bloqueia ações inválidas.
-
-
+- **Swagger (produção) (Mude o servidor para o de deploy)**  
+  <https://order-management-challenge-production.up.railway.app/api-docs>
 
 ---
 
-### Critérios de Avaliação
+## ▶️ Como executar o projeto localmente
 
-* **Arquitetura:** Separação de responsabilidades e clareza.
-* **TypeScript:** Uso correto de tipagem.
-* **Mongoose:** Modelagem e queries eficientes.
-* **Commits:** Histórico e organização no Git.
+### 1. Clonar o repositório
 
----
+```bash
+git clone https://github.com/CaioMMendes/order-management-challenge
+```
 
-### 📅 Prazo de Entrega
+### 2. Entrar na pasta do projeto
 
-A data limite para submissão do link do repositório é **04/01**. Envios após essa data não serão considerados. Bom código!"
+```bash
+cd order-management-challenge
+```
 
-**Entrega:** Link do repositório com instruções de execução no README.
+### 3. Instalar as dependências
+
+```bash
+npm ci
+```
+
+### 4. Criar .env e colocar essas informações
+
+```env
+MONGO_URI=URI_DO_SEU_MONGODB
+JWT_SECRET=sua_chave_secreta
+```
+
+### 5. Rodar o projeto em ambiente de desenvolvimento
+
+```bash
+npm run dev
+```
+
+## 🔗 Acessos locais
+
+API
+<http://localhost:3333>
+
+Swagger (OpenAPI)
+<http://localhost:3333/api-docs>
+
+### 📌 Rotas disponíveis (visão geral)
+
+As rotas abaixo podem ser consultadas com mais detalhes no Swagger.
+
+#### 🔐 Autenticação
+
+POST /auth/login
+
+POST /auth/register
+
+#### 📦 Pedidos
+
+POST /orders
+
+GET /orders
+
+PATCH /orders/:id/advance
