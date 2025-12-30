@@ -1,7 +1,9 @@
 import swaggerJsdoc from "swagger-jsdoc"
+import { fileURLToPath } from "url"
+import { dirname } from "path"
 
-export const SWAGGER_CSS_URL =
-  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css"
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const options = {
   definition: {
@@ -31,7 +33,7 @@ const options = {
       },
     },
   },
-  apis: ["./src/routes/*.ts"],
+  apis: [`${__dirname}/../routes/*.ts`],
 }
 
 export const swaggerSpec = swaggerJsdoc(options)
