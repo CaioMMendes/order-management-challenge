@@ -1,7 +1,12 @@
-import { Request, Response } from "express"
-import { OrderService } from "@/services/order.service"
 import { OrderState } from "@/models/order.model"
-import { HttpError } from "@/errors/http.error"
+import { OrderService } from "@/services/order.service"
+import { Request, Response } from "express"
+
+type ParamsType = {
+  page: number
+  limit: number
+  state: OrderState
+}
 
 const orderService = new OrderService()
 
@@ -15,8 +20,7 @@ export class OrderController {
   async list(req: Request, res: Response) {
     const { page, limit, state } = req.query
 
-    //todo rever os anys
-    const params: any = {}
+    const params: Partial<ParamsType> = ({} = {})
 
     if (page !== undefined) params.page = Number(page)
     if (limit !== undefined) params.limit = Number(limit)

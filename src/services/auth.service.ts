@@ -6,6 +6,10 @@ import { HttpError } from "@/errors/http.error"
 
 export class AuthService {
   async register(data: RegisterRequestDTO) {
+    if (!data.password || !data.email) {
+      throw new HttpError(400, "Email and password are required")
+    }
+
     const userExists = await UserModel.findOne({ email: data.email })
     if (userExists) {
       throw new HttpError(409, "User already exists!")
@@ -24,6 +28,10 @@ export class AuthService {
   }
 
   async login(data: LoginRequestDTO) {
+    if (!data.password || !data.email) {
+      throw new HttpError(400, "Email and password are required")
+    }
+
     const user = await UserModel.findOne({ email: data.email })
     if (!user) {
       throw new HttpError(401, "Invalid credentials")
