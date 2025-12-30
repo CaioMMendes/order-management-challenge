@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
-import { AuthService } from "@/services/auth.service"
-import { LoginDTO, RegisterDTO } from "@/dtos/auth.dto"
+import { AuthService } from "../services/auth.service.js"
+import { LoginDTO, RegisterDTO } from "../dtos/auth.dto.js"
 
 const authService = new AuthService()
 

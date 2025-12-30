@@ -1,8 +1,8 @@
 import express from "express"
-import { routes } from "./routes/routes"
+import { routes } from "./routes/routes.js"
 import cors from "cors"
 import "dotenv/config"
-import { errorMiddleware } from "./middlewares/error.middleware"
+import { errorMiddleware } from "./middlewares/error.middleware.js"
 
 export const app = express()
 

@@ -1,5 +1,5 @@
-import { OrderState } from "@/models/order.model"
-import { OrderService } from "@/services/order.service"
+import { OrderState } from "../models/order.model.js"
+import { OrderService } from "../services/order.service.js"
 import { Request, Response } from "express"
 
 type ParamsType = {

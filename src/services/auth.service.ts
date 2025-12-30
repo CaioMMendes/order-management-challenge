@@ -1,9 +1,8 @@
-import { UserModel } from "@/models/user.model"
+import { UserModel } from "../models/user.model.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import { LoginRequestDTO, RegisterRequestDTO } from "@/dtos/auth.dto"
-import { HttpError } from "@/errors/http.error"
-
+import { LoginRequestDTO, RegisterRequestDTO } from "../dtos/auth.dto.js"
+import { HttpError } from "../errors/http.error.js"
 export class AuthService {
   async register(data: RegisterRequestDTO) {
     if (!data.password || !data.email) {

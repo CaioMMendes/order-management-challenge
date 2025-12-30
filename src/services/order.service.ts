@@ -1,10 +1,6 @@
-import { OrderModel, OrderState } from "@/models/order.model"
-import {
-  CreateOrderDTO,
-  ListOrdersDTO,
-  OrderResponseDTO,
-} from "@/dtos/order.dto"
-import { HttpError } from "@/errors/http.error"
+import { OrderModel, OrderState } from "../models/order.model.js"
+import { CreateOrderDTO, ListOrdersDTO } from "../dtos/order.dto.js"
+import { HttpError } from "../errors/http.error.js"
 
 const stateFlow: Record<OrderState, OrderState | null> = {
   [OrderState.CREATED]: OrderState.ANALYSIS,

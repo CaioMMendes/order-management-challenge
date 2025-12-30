@@ -1,4 +1,8 @@
-import { OrderState, OrderStatus, ServiceStatus } from "@/models/order.model"
+import {
+  OrderState,
+  OrderStatus,
+  ServiceStatus,
+} from "../models/order.model.js"
 
 export interface CreateServiceDTO {
   name: string

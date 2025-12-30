@@ -1,9 +1,9 @@
 import { Router } from "express"
-import { swaggerSpec } from "@/config/swagger"
+import { swaggerSpec } from "../config/swagger.js"
 import swaggerUi from "swagger-ui-express"
 
-import { authRoutes } from "@/routes/auth.routes"
-import { orderRoutes } from "./order.routes"
+import { authRoutes } from "./auth.routes.js"
+import { orderRoutes } from "./order.routes.js"
 
 const routes = Router()
 

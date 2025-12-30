@@ -1,10 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from "vitest"
-import { OrderService } from "../order.service"
-import { OrderState } from "@/models/order.model"
-import { HttpError } from "@/errors/http.error"
-import { OrderModel } from "@/models/order.model"
+import { OrderService } from "../order.service.js"
+import { OrderState } from "../../models/order.model.js"
+import { HttpError } from "../../errors/http.error.js"
+import { OrderModel } from "../../models/order.model.js"
 
-vi.mock("@/models/order.model", () => {
+vi.mock("../../models/order.model.js", () => {
   return {
     OrderModel: {
       findById: vi.fn(),
