@@ -15,12 +15,12 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3333",
-        description: "Servidor local",
-      },
-      {
         url: "https://order-management-challenge.vercel.app/",
         description: "Teste Técnico API",
+      },
+      {
+        url: "http://localhost:3333",
+        description: "Servidor local",
       },
     ],
     components: {
